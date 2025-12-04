@@ -31,14 +31,14 @@ export default function Home() {
           />
           <ul className={`nav-list ${isMenuOpen ? 'active' : ''}`}>
             <li className="list-item">
-              <Link href="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
+              <Link href="/" onClick={() => setIsMenuOpen(false)}>Acasă</Link>
             </li>
             {/* <li className="list-item">
-              <Link href="/articles" onClick={() => setIsMenuOpen(false)}>Articles</Link>
+              <Link href="/articles" onClick={() => setIsMenuOpen(false)}>Articole</Link>
             </li>
             <li className="list-item">
               Linkul acesta poate duce momentan tot spre home sau o pagina in constructie 
-              <Link href="#" onClick={() => setIsMenuOpen(false)}>Films&Series</Link>
+              <Link href="#" onClick={() => setIsMenuOpen(false)}>Filme&Seriale</Link>
             </li> */}
           </ul>
         </div>
@@ -72,16 +72,17 @@ export default function Home() {
 
         {/* COLOANA CENTRALA - Continut */}
         <div className="column2">
-          <h2>About me</h2>
+          <h2>Despre mine</h2>
           <p style={{ marginBottom: '2%' }}>
-            Welcome to my website! I created this site to prove to myself that I can code and manage it properly. 
-            I will dedicate this space to showcasing my passions and my journey.
+            Salut și bine ai venit! Am construit acest site ca o provocare personală, 
+            pentru a-mi testa abilitățile de dezvoltare și administrare web. Este un 
+            spațiu dedicat evoluției și intereselor mele.
             <br /><br />
-            I&apos;m a student at the Faculty of Automatic Control and Computer Science. 
-            In my free time, I code, read, and try to find my own path.
-            <br /><br />
-            I&apos;ll be sharing my thoughts and insights on a variety of topics. 
-            I hope that by sharing my experiences, I can inspire others to explore their own interests.
+            Pe acest site, vei găsi articole și reflecții despre diverse subiecte care 
+            mă pasionează, de la tehnologie și programare, până la hobby-urile mele 
+            personale.
+            Voi împărtăși, de asemenea, gândurile și perspectivele mele pe diverse subiecte. 
+            Sper ca, prin împărtășirea experiențelor mele, să pot inspira și pe alții să-și exploreze propriile interese.
           </p>
 
           {/* AICI AI PUTEA PUNE BUTONUL DE BUY ME A COFFEE */}
