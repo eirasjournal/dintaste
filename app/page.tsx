@@ -5,6 +5,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import SparkleManager from './components/SparkleManager'; // <--- IMPORT AICI
 import Comments from './components/Comments';
+import MapWidget from './components/MapWidget';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -84,6 +85,8 @@ export default function Home() {
             Voi împărtăși, de asemenea, gândurile și perspectivele mele pe diverse subiecte. 
             Sper ca, prin împărtășirea experiențelor mele, să pot inspira și pe alții să-și exploreze propriile interese.
           </p>
+
+          <MapWidget />
 
           {/* AICI AI PUTEA PUNE BUTONUL DE BUY ME A COFFEE */}
           {/* <div style={{ margin: '40px 0', textAlign: 'center' }}>
