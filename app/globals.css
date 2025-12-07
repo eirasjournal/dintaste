@@ -324,13 +324,13 @@
   .column1 {
     border-right: 3px solid #221f38;
     float: left;
-    width: 15%;
+    width: 10%;
   }
 
   .column2 {
     font-size: 1;
     float:left;
-    width: 70%;
+    width: 80%;
     font-size: large;
     padding: 15px;
     background-color: #341c74;
@@ -352,7 +352,7 @@
   .column3 {
     border-left: 3px solid #221f38;
     float: left;
-    width: 15%;
+    width: 10%;
   }
   
   /* Clear floats after the columns */
