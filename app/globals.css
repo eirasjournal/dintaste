@@ -14,15 +14,37 @@
     background-position-y: 0%;
     }
     #d-wrapper * {
-    
     margin:0;
     padding:0;}
     
-    #d-wrapper	div.sep1,
-    #d-wrapper	div.sep2 {
-        padding: 32px 0;
-      }
-    
+    /* --- CONFIGURARE ZONE SEP1 ȘI SEP2 --- */
+
+    /* 1. Definiția de bază pentru ambele zone (DIMENSIUNE ȘI PADDING) */
+    #d-wrapper div.sep1,
+    #d-wrapper div.sep2 {
+      padding: 32px 0 0 0; /* Păstrăm padding-ul ca textul să nu fie lipit de sus */
+      min-height: 15vh;    /* Le forțăm pe ambele să aibă aceeași înălțime minimă */
+      overflow: hidden; 
+      position: relative; 
+    }
+
+    /* 2. CONFIGURARE SPARKLES DIFERENȚIATĂ */
+
+    /* Pentru SEP1: Sparkles încep de la 0 (chiar de sus) */
+    #d-wrapper div.sep1 canvas.sparkle-canvas {
+      top: 0 !important; 
+    }
+
+    /* Pentru SEP2: Sparkles coboară 32px (ca să nu intre sub zig-zag-ul de mijloc) */
+    #d-wrapper div.sep2 canvas.sparkle-canvas {
+      top: 32px !important; 
+    }
+
+    /* Opțional: Aliniere text paragrafe */
+    #d-wrapper div.sep1 p,
+    #d-wrapper div.sep2 p {
+      margin-top: 5%; 
+    }
     #d-wrapper	.zig-zag-top:before{
         background: 
               linear-gradient(-45deg, #fe98ff 16px, red 16px, blue 16px,  transparent 0), 
@@ -42,7 +64,7 @@
       }
     
     #d-wrapper	div > * {
-        margin: 0 40px;
+        margin: 0 0px;
       }
     
     #d-wrapper	.zig-zag-bottom{

@@ -2,13 +2,56 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SparkleManager from './components/SparkleManager'; // <--- IMPORT AICI
 import Comments from './components/Comments';
 import MapWidget from './components/MapWidget';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [decorCount, setDecorCount] = useState(3);
+  const leftRef = useRef<HTMLDivElement | null>(null);
+  const rightRef = useRef<HTMLDivElement | null>(null);
+  const centerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    let t: number | null = null;
+    const compute = () => {
+      try {
+        const center = centerRef.current;
+        const left = leftRef.current;
+        if (!center || !left) return;
+
+        const centerHeight = center.offsetHeight;
+
+        // Try to measure one pattern block: a zig + sep2
+        const oneZig = left.querySelector('.zig-zag-top1') || left.querySelector('.zig-zag-bottom');
+        const oneSep = left.querySelector('.sep2');
+        const zigH = oneZig ? (oneZig as HTMLElement).offsetHeight : 1;
+        const sepH = oneSep ? (oneSep as HTMLElement).offsetHeight : 1;
+        const patternH = zigH + sepH;
+
+        if (patternH <= 0) return;
+
+        const needed = Math.max(3, Math.ceil(centerHeight / patternH));
+        if (needed !== decorCount) setDecorCount(needed);
+      } catch {
+        // ignore measurement errors
+      }
+    };
+
+    const debounced = () => {
+      if (t) clearTimeout(t);
+      t = window.setTimeout(() => compute(), 120);
+    };
+
+    compute();
+    window.addEventListener('resize', debounced);
+    return () => {
+      window.removeEventListener('resize', debounced);
+      if (t) clearTimeout(t);
+    };
+  }, [decorCount]);
 
   return (
     <main className="min-h-screen bg-[#341c74]">
@@ -56,14 +99,14 @@ export default function Home() {
         {/* COLOANA STANGA - Decorativa */}
         <div className="column1">
           <div id="d-wrapper">
-            <div className="zig-zag-bottom"></div>
-            <div className="sep1"><p>✧˖°˖࿔⋆</p></div>
+              <div className="zig-zag-bottom"></div>
+              <div className="sep1"><p></p></div>
             
-            {[...Array(3)].map((_, i) => (
+              {[...Array(decorCount)].map((_, i) => (
               /* React.Fragment tine loc de parinte, dar dispare in browser */
               <React.Fragment key={i}>
-                <div className="zig-zag-bottom zig-zag-top1"><p>✧˖°˖࿔⋆</p></div>
-                <div className="sep2"><p style={{ marginTop: '20%' }}>✧˖°˖࿔⋆</p></div>
+                <div className="zig-zag-bottom zig-zag-top1"><p></p></div>
+                <div className="sep2"><p style={{ marginTop: '20%' }}></p></div>
               </React.Fragment>
             ))}
             
@@ -72,7 +115,7 @@ export default function Home() {
         </div>
 
         {/* COLOANA CENTRALA - Continut */}
-        <div className="column2">
+        <div className="column2" ref={centerRef}>
           <h2>Despre mine</h2>
           <p style={{ marginBottom: '2%' }}>
             Salut și bine ai venit! Am construit acest site ca o provocare personală, 
@@ -102,15 +145,15 @@ export default function Home() {
 
         {/* COLOANA DREAPTA - Decorativa */}
         <div className="column3">
-          <div id="d-wrapper">
+          <div id="d-wrapper" ref={rightRef}>
             <div className="zig-zag-bottom"></div>
-            <div className="sep1"><p>⋆࿔˖°˖✧</p></div>
+            <div className="sep1"><p></p></div>
             
-            {[...Array(3)].map((_, i) => (
+            {[...Array(decorCount)].map((_, i) => (
               /* React.Fragment tine loc de parinte, dar dispare in browser */
               <React.Fragment key={i}>
-                <div className="zig-zag-bottom zig-zag-top1"><p>⋆࿔˖°˖✧</p></div>
-                <div className="sep2"><p style={{ marginTop: '20%' }}>⋆࿔˖°˖✧</p></div>
+                <div className="zig-zag-bottom zig-zag-top1"><p></p></div>
+                <div className="sep2"><p style={{ marginTop: '20%' }}></p></div>
               </React.Fragment>
             ))}
             

@@ -38,7 +38,7 @@ export default function SparkleManager() {
     });
 
     // Separatoarele si textul decorativ
-    ($(".sep1 p, .sep2 p, .zig-zag-top1 p") as JQuery<HTMLElement>).sparkle({
+    ($(".sep1, .sep2") as JQuery<HTMLElement>).sparkle({
       color: ["#FFFFFF", "#e67976"],
       minSize: 7,
       maxSize: 10,
