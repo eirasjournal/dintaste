@@ -3,16 +3,25 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState, useEffect, useRef } from 'react';
-import SparkleManager from './components/SparkleManager'; // <--- IMPORT AICI
-import MapWidget from './components/MapWidget';
+import SparkleManager from '../components/SparkleManager'; // <--- IMPORT AICI
 
-export default function Home() {
+export default function Contact() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [decorCount, setDecorCount] = useState(3);
   const leftRef = useRef<HTMLDivElement | null>(null);
   const rightRef = useRef<HTMLDivElement | null>(null);
   const centerRef = useRef<HTMLDivElement | null>(null);
   const MAX_DECOR = 30; // safety cap to avoid infinite repetition on extremely tall screens
+
+  // State pentru efectul de "Copied!"
+  const [copied, setCopied] = useState(false);
+  const email = "eirasjournal@gmail.com"; // <-- PUNE ADRESA TA AICI (chiar dacă nu ai domeniul încă, poți pune gmail)
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000); // Resetează mesajul după 2 secunde
+  };
 
   useEffect(() => {
     let t: number | null = null;
@@ -82,7 +91,7 @@ export default function Home() {
               <Link href="/articles" onClick={() => setIsMenuOpen(false)}>Articles</Link>
             </li>
             <li className="list-item">
-              <Link href="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+              <Link href="#" onClick={() => setIsMenuOpen(false)}>Contact</Link>
             </li>
           </ul>
         </div>
@@ -116,30 +125,62 @@ export default function Home() {
 
         {/* COLOANA CENTRALA - Continut */}
         <div className="column2" ref={centerRef}>
-          <h2 style={{ marginBottom: '40px', borderBottom: '2px solid #fe98ff', paddingBottom: '10px' }}>
-          About me
-          </h2>
-          <p style={{ marginBottom: '2%', fontSize: '1.2rem' }}>
-            Hello and welcome! I started this site with two goals in mind: to push my technical boundaries and to find my voice. What began as a &quot;built-from-scratch&quot; coding challenge quickly became my space of freedom.
-          </p>
-          <p style={{ marginBottom: '2%', fontSize: '1.2rem' }}>
-            It’s a space where my technical projects collide with my personal thoughts. Consider it an ongoing experiment in development: building a functional website, but also building myself. 
-          </p>
-          <p style={{ marginBottom: '2%', fontSize: '1.2rem' }}>
-            Why &apos;Din Taste&apos;? It translates to &apos;From Keys&apos; in my native Romanian. It’s a reminder that everything here comes raw, straight from my keyboard to your screen.
-          </p>
-          <p style={{ marginBottom: '2%', fontSize: '1.2rem' }}>
-            I hope reading this inspires you to start your own project, no matter what it is.
-          </p>
+          <div className="fade-in" style={{ maxWidth: '800px', margin: '0 auto', paddingTop: '20px' }}>
+            <h2 style={{ marginBottom: '40px', borderBottom: '2px solid #fe98ff', paddingBottom: '10px' }}>
+              Get in Touch
+            </h2>
 
-          <MapWidget />
+            <p style={{ fontSize: '1.2rem', lineHeight: '1.6', marginBottom: '30px' }}>
+              Have something to share? A thought about an article, a song recommendation, or just want to say hi?
+            </p>
+            <p style={{ fontSize: '1.2rem', lineHeight: '1.6', marginBottom: '30px' }}>
+              I&apos;m always open to reading emails from strangers. It reminds me that there are real people behind the screens.
+            </p>
 
-          {/* AICI AI PUTEA PUNE BUTONUL DE BUY ME A COFFEE */}
-          {/* <div style={{ margin: '40px 0', textAlign: 'center' }}>
-            <a href="#" className="sparkley" style={{ color: 'white', textDecoration: 'none' }}>
-              ☕ Buy me a coffee (Coming Soon)
-            </a>
-          </div> */}
+            {/* CUTIA DE EMAIL */}
+            <div style={{ 
+              background: 'rgba(255,255,255,0.05)', 
+              padding: '30px', 
+              borderRadius: '15px', 
+              border: '1px dashed #fe98ff',
+              textAlign: 'center',
+              marginTop: '50px'
+            }}>
+              <p style={{marginLeft: '-45px', fontFamily: 'monospace', color: '#ccc', marginBottom: '15px' }}>
+                You can reach me at:
+              </p>
+              
+              <div style={{ 
+                fontSize: '1.5rem', 
+                color: '#fff', 
+                fontFamily: 'monospace', 
+                marginBottom: '25px',
+                wordBreak: 'break-all' 
+              }}>
+                {email}
+              </div>
+
+              <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                {/* Buton Copy */}
+                <button 
+                  onClick={handleCopy}
+                  className="btn"
+                  style={{ 
+                    background: copied ? '#4caf50' : '#fe98ff', // Se face verde când e copiat
+                    color: '#341c74',
+                    border: 'none',
+                    padding: '10px 25px',
+                    fontSize: '1rem',
+                    fontWeight: 'bold',
+                    margin: 0
+                  }}
+                >
+                  {copied ? "Copied! ✅" : "Copy Email"}
+                </button>
+              </div>
+            </div>
+
+          </div>
         </div>
 
         {/* COLOANA DREAPTA - Decorativa */}
