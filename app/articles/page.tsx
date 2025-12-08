@@ -140,9 +140,18 @@ export default function ArticlesPage() {
                     padding: '20px',
                     backgroundColor: 'rgba(255,255,255,0.05)',
                     borderRadius: '10px',
+                    transition: 'transform 0.2s, background 0.2s',
                     border: '1px solid transparent'
                   }}
                   className="article-preview-card"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.02)';
+                    e.currentTarget.style.borderColor = '#fe98ff';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                    e.currentTarget.style.borderColor = 'transparent';
+                  }}
                 >
                   <h3 style={{ color: '#fe98ff', fontSize: '1.5rem', marginBottom: '5px' }}>{art.title}</h3>
                   <span style={{ color: '#ccc', fontFamily: 'monospace', fontSize: '0.9rem' }}>{art.date}</span>
