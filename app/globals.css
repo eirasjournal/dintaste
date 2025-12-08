@@ -327,23 +327,47 @@
   padding: 0;
   display: block;
 }
-  /* Create three equal columns that floats next to each other */
-  .column1 {
-    border-right: 3px solid #221f38;
-    float: left;
-    width: 10%;
-  }
 
-  .column2 {
-    font-size: 1;
-    float:left;
-    width: 80%;
-    font-size: large;
-    padding: 15px;
-    background-color: #341c74;
-    color: white;
-  }
+/* --- CSS NOU (Flexbox) --- */
 
+.row {
+  display: flex;          /* Aceasta este cheia! */
+  flex-direction: row;
+  align-items: stretch;   /* Forțează toate coloanele să se întindă până jos */
+  width: 100%;
+}
+
+.column1 {
+  width: 10%;
+  border-right: 3px solid #221f38;
+  background-color: #341c74; /* Asigură fundalul chiar dacă zig-zag-ul se termină */
+  overflow: hidden; /* Ascunde zig-zag-urile care ies din cadru */
+}
+
+.column2 {
+  width: 80%;
+  padding: 15px;
+  background-color: #341c74;
+  color: white;
+}
+
+.column3 {
+  width: 10%;
+  border-left: 3px solid #221f38;
+  background-color: #341c74;
+  overflow: hidden;
+}
+
+/* Pentru Mobil */
+@media screen and (max-width: 820px) {
+  .row {
+    flex-direction: column; /* Pe mobil le punem una sub alta */
+  }
+  .column1, .column2, .column3 {
+    width: 100%;
+    height: auto; /* Pe mobil înălțimea e automată */
+  }
+}
   .column2 p {
     font-family: "PT Sans Narrow", "Fjalla One", sans-serif;
     font-weight: 900;
@@ -356,12 +380,6 @@
     text-indent: 40px;
   }
 
-  .column3 {
-    border-left: 3px solid #221f38;
-    float: left;
-    width: 10%;
-  }
-  
   /* Clear floats after the columns */
   .row:after {
     content: "";

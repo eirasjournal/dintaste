@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState, useEffect, useRef } from 'react';
 import SparkleManager from './components/SparkleManager'; // <--- IMPORT AICI
-import Comments from './components/Comments';
 import MapWidget from './components/MapWidget';
 
 export default function Home() {
@@ -77,11 +76,12 @@ export default function Home() {
           />
           <ul className={`nav-list ${isMenuOpen ? 'active' : ''}`}>
             <li className="list-item">
-              <Link href="/" onClick={() => setIsMenuOpen(false)}>Acasă</Link>
+              <Link href="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
             </li>
-            {/* <li className="list-item">
-              <Link href="/articles" onClick={() => setIsMenuOpen(false)}>Articole</Link>
+            <li className="list-item">
+              <Link href="/articles" onClick={() => setIsMenuOpen(false)}>Articles</Link>
             </li>
+            {/*
             <li className="list-item">
               Linkul acesta poate duce momentan tot spre home sau o pagina in constructie 
               <Link href="#" onClick={() => setIsMenuOpen(false)}>Filme&Seriale</Link>
@@ -104,7 +104,7 @@ export default function Home() {
               <div className="zig-zag-bottom"></div>
               <div className="sep1"><p></p></div>
             
-              {[...Array(decorCount + 1)].map((_, i) => (
+              {[...Array(decorCount)].map((_, i) => (
               /* React.Fragment tine loc de parinte, dar dispare in browser */
               <React.Fragment key={i}>
                 <div className="zig-zag-bottom zig-zag-top1"><p></p></div>
@@ -118,18 +118,20 @@ export default function Home() {
 
         {/* COLOANA CENTRALA - Continut */}
         <div className="column2" ref={centerRef}>
-          <h2>Despre mine</h2>
-          <p style={{ marginBottom: '2%' }}>
-            Salut și bine ai venit! Am construit acest site ca o provocare personală, 
-            pentru a-mi testa abilitățile de dezvoltare și administrare web. Este un 
-            spațiu dedicat evoluției și intereselor mele.
+          <h2 style={{ marginBottom: '40px', borderBottom: '2px solid #fe98ff', paddingBottom: '10px' }}>
+          About me
+          </h2>
+          <p style={{ marginBottom: '2%', fontSize: '1.2rem' }}>
+            Hello and welcome! I started this site with two goals in mind: to push my technical boundaries and to find my voice. What began as a &quot;built-from-scratch&quot; coding challenge quickly became my space of freedom.
           </p>
-          <p style={{ marginBottom: '2%' }}>
-            Pe acest site, vei găsi articole și reflecții despre diverse subiecte care 
-            mă pasionează, de la tehnologie și programare, până la hobby-urile mele 
-            personale.
-            Voi împărtăși, de asemenea, gândurile și perspectivele mele pe diverse subiecte. 
-            Sper ca, prin împărtășirea experiențelor mele, să pot inspira și pe alții să-și exploreze propriile interese.
+          <p style={{ marginBottom: '2%', fontSize: '1.2rem' }}>
+            It’s a space where my technical projects collide with my personal thoughts. Consider it an ongoing experiment in development: building a functional website, but also building myself. 
+          </p>
+          <p style={{ marginBottom: '2%', fontSize: '1.2rem' }}>
+            Why &apos;Din Taste&apos;? It translates to &apos;From Keys&apos; in my native Romanian. It’s a reminder that everything here comes raw, straight from my keyboard to your screen.
+          </p>
+          <p style={{ marginBottom: '2%', fontSize: '1.2rem' }}>
+            I hope reading this inspires you to start your own project, no matter what it is.
           </p>
 
           <MapWidget />
@@ -140,10 +142,6 @@ export default function Home() {
               ☕ Buy me a coffee (Coming Soon)
             </a>
           </div> */}
-
-          <div className="scroller">
-            <Comments />
-          </div>
         </div>
 
         {/* COLOANA DREAPTA - Decorativa */}
@@ -152,7 +150,7 @@ export default function Home() {
             <div className="zig-zag-bottom"></div>
             <div className="sep1"><p></p></div>
             
-            {[...Array(decorCount + 1)].map((_, i) => (
+            {[...Array(decorCount)].map((_, i) => (
               /* React.Fragment tine loc de parinte, dar dispare in browser */
               <React.Fragment key={i}>
                 <div className="zig-zag-bottom zig-zag-top1"><p></p></div>

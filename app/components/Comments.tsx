@@ -5,7 +5,7 @@ import Giscus from '@giscus/react';
 export default function Comments() {
   return (
     <div style={{ marginTop: '50px', padding: '20px', background: 'rgba(0,0,0,0.2)', borderRadius: '15px' }}>
-      <h2 style={{ color: 'white', marginBottom: '20px' }}>Comentarii</h2>
+      <h2 style={{ color: 'white', marginBottom: '20px' }}>Comments</h2>
       <Giscus
         id="comments"
         repo="eirasjournal/dintaste" // <-- Pune aici datele tale
@@ -17,7 +17,7 @@ export default function Comments() {
         emitMetadata="0"
         inputPosition="top"
         theme="purple_dark"              // Tema intunecata
-        lang="ro"
+        lang="en"
         loading="lazy"
       />
     </div>
