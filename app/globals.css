@@ -21,7 +21,7 @@
 
     #d-wrapper div.sep1,
     #d-wrapper div.sep2 {
-      min-height: 15vh; /* Le forțăm pe ambele să aibă aceeași înălțime minimă */
+      min-height: 12vh; /* Le forțăm pe ambele să aibă aceeași înălțime minimă */
       position: relative;
     }
 
@@ -36,7 +36,6 @@
       
       background-image: url("/f1356e49255313134793b55e2978e472.jpg");
       background-repeat: repeat-y;
-      background-size: 44vw;
 
       z-index: -1; /* important!!! Pune fundalul sub conținut și sub zig-zag */
     }
@@ -367,6 +366,11 @@
     width: 100%;
     height: auto; /* Pe mobil înălțimea e automată */
   }
+
+  #d-wrapper div.sep1 {
+      min-height: 12vh; /* Le forțăm pe ambele să aibă aceeași înălțime minimă */
+      position: relative;
+    }
 }
   .column2 p {
     font-family: "PT Sans Narrow", "Fjalla One", sans-serif;
