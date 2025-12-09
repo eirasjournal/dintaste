@@ -47,17 +47,6 @@ Men aren't that hard to figure out. When a man really wants to be with you, he l
 Yes, it hurt. A person with whom I spent more than a quarter of my life left. And the reasons he left were even more painful. They made me ask questions like: "Is there something wrong with me? Am I a person a man can't be happy with?".
 At first, my answers were yes. In the meantime, I woke up to reality.
 
-So, what matters in a relationship?
-Psychologically speaking, there are two main things:
-
-
-* Chemistry (attraction to the other person)
-
-
-* Compatibility (shared values and perspectives)
-
-So, my next relationship will be based on both. And if it can't be... better not to be at all. As the saying goes: better nothing than something bad!
-
 In the end, I learned a lot from this experience. Most importantly, I learned how to move on. And as a closing note, for anyone who needs to read this, I have the following message:
 
 Instead of drowning your feelings in alcohol, cigarettes, clubs, and parties... Sit with them. Feel them and embrace them. Talk about them, don't hide them. Tell anyone you feel like telling. You will be surprised by some very good advice coming from people you don't expect. You will also be surprised by less good advice, but you will learn to choose between what is right and what is wrong. You will have examples of "yes, do this" and "no, don't do that."
