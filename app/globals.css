@@ -308,6 +308,24 @@ body {
   .nav-list.active {
     max-height: 300px;
   }
+
+  .header {
+    
+    /* Setăm o zonă fixă pentru meniu (ex: 80px) */
+    padding-bottom: 80px !important; 
+  }
+
+  /* 2. Ajustăm Navbar-ul să acopere perfect acea zonă */
+  .navbar {
+    /* Tragem în sus exact cât am lăsat spațiu mai sus */
+    margin-top: -80px !important; 
+    
+    /* FORȚĂM înălțimea minimă să fie fix cât spațiul, ca să acopere tot */
+    min-height: 80px !important; 
+    
+    /* Ajustăm padding-ul ca să centrăm conținutul vertical */
+    padding: 0 20px !important; 
+  }
 }
 
 .menu-toggle {
