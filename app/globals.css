@@ -10,7 +10,13 @@ body {
 }
 
 #d-wrapper {
-  background-image: url("/f1356e49255313134793b55e2978e472.jpg");
+  background: linear-gradient(
+  to bottom, 
+  #341c74 0%, 
+  #221f38 50%,  /* Culoarea panourilor laterale */
+  #3e5871 80%,  /* Culoarea albastruie a butoanelor */
+  #341c74 100%
+);
   background-size: 44vw;
   background-position-x: 0%;
   background-position-y: 0%;
@@ -37,10 +43,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-
-  background-image: url("/f1356e49255313134793b55e2978e472.jpg");
   background-repeat: repeat-y;
-
   z-index: -1;
 }
 
@@ -229,8 +232,11 @@ body {
   justify-content: center;
   align-items: center;
 
-  /* --- 3. Spațiul pentru Navbar --- */
-  padding-bottom: 12vh;
+  /* MODIFICARE AICI: */
+  padding-bottom: 100px; /* Era 12vh */
+  
+  /* Adaugă asta pentru siguranță, taie orice sclipici rebel care iese din chenar */
+  overflow: hidden;
 
   /* --- 4. Stil Text --- */
   color: #e0e0e0; /* MODIFICAT */
@@ -243,14 +249,9 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  
-  /* TRUCUL: Nu îl lăsăm să ajungă până jos (100%). 
-     Îi spunem să se oprească cu 10vh înainte de final.
-     Asta va ascunde stelele exact în spatele navbar-ului, fără să iasă dedesubt. */
-  height: 90%; 
-  
-  z-index: 1; /* Stelele sub text */
-  pointer-events: none; /* Ca să poți da click prin ele dacă e cazul */
+  height: 100%; /* Acum poți pune 100% fără frică */
+  z-index: 1;
+  pointer-events: none;
   overflow: hidden;
 }
 
@@ -283,7 +284,15 @@ body {
   top: 0;
   z-index: 100;
 
-  margin-top: -12vh;
+  /* MODIFICARE AICI: */
+  margin-top: -100px; /* Era -12vh */
+  
+  /* Opțional: Setăm o înălțime minimă ca să fim siguri că acoperă tot padding-ul */
+  min-height: 100px; 
+  
+  /* Ajustăm padding-ul ca să centrăm elementele vertical */
+  padding-top: 10px;
+  padding-bottom: 10px;;
 
   background: rgba(34, 31, 56, 0.6);
   backdrop-filter: blur(8px);
