@@ -74,8 +74,8 @@ export default function SparkleManager() {
 
       // D. APLICĂM EFECTELE PE ELEMENTE
 
-      // 1. Header (Always active)
-      ($(".header") as JQuery<HTMLElement>).sparkle_always(headerSettings);
+      // MODIFICARE AICI: Țintim clasa nouă
+      ($(".header-sparkles") as JQuery<HTMLElement>).sparkle_always(headerSettings);
 
       // 2. Elemente Decorative (Zig-Zag, Separatoare - Always active)
       // Am adăugat și clasele zig-zag pe care le ai în design
